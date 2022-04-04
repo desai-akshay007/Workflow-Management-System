@@ -1,0 +1,170 @@
+## GET - 
+
+- get all employee details: www.topsecurity.com/getEmployees
+
+Response
+{
+    status: "OK",
+    payload: [
+        {
+            empId: "xyz123",
+            First_Name: "akshay",
+            Last_Name: "desai",
+            contact: "9876541234"
+            schedule:[{
+                date: "12/04/2022"
+                startTime: "12 AM"
+                endTime: "5am",
+                location: "SN Building"
+            },
+            {
+                date: "13/04/2022"
+                startTime: "12 AM"
+                endTime: "5am",
+                location: "Walmart Building"
+            }]
+        },
+        {
+            empId: "abc333",
+            First_Name: "James",
+            Last_Name: "T",
+            contact: "12343545465"
+            schedule:[{
+                date: "12/04/2022"
+                startTime: "12 AM"
+                endTime: "5am",
+                location: "SN Building"
+            },
+            {
+                date: "13/04/2022"
+                startTime: "12 AM"
+                endTime: "5am",
+                location: "Walmart Building"
+            }]
+        }
+
+    ]
+}
+
+- get one employee info - /getEmployees/?empId="abc333"
+Response
+{
+    status: "OK",
+    payload: [
+        {
+            empId: "abc333",
+            First_Name: "James",
+            Last_Name: "T",
+            contact: "12343545465"
+            schedule:[{
+                date: "12/04/2022"
+                startTime: "12 AM"
+                endTime: "5am",
+                location: "SN Building"
+            },
+            {
+                date: "13/04/2022"
+                startTime: "12 AM"
+                endTime: "5am",
+                location: "Walmart Building"
+            }]
+        }
+
+    ]
+}
+
+POST call too add a Building
+
+- /addBuilding
+
+Request:
+{
+    body: [{
+        name: QualcommBuilding,
+        size: 100,
+        entryPoints: 6,
+        cost: $1000
+    }]
+}
+
+Response:
+{
+    status:"OK",
+    payload: [{
+        buildingId: "b1",
+        name: QualcommBuilding,
+        size: 100,
+        entryPoints: 6,
+        cost: $1000
+    },
+    {   buildingId: "b2",
+        name: SNBuilding,
+        size: 300,
+        entryPoints: 12,
+        cost: $2000
+    },
+    {   buildingId: "b3"
+        name: WalmartBuilding,
+        size: 300,
+        entryPoints: 12,
+        cost: $2000
+    }]
+}
+
+PUT Update the cost of a building
+- /updateBuilding
+
+Request:
+{
+    body: [{
+        name: SNBuilding,
+        size: 500,
+        entryPoints: 15,
+        cost: $3000
+    }]
+}
+
+Response:
+{
+    status:"OK",
+    payload: [{
+        buildingId: "b1",
+        name: QualcommBuilding,
+        size: 100,
+        entryPoints: 6,
+        cost: $1000
+    },
+    {   buildingId: "b2",
+        name: SNBuilding,
+        size: 500,
+        entryPoints: 15,
+        cost: $3000
+    },
+    {   buildingId: "b3",
+        name: WalmartBuilding,
+        size: 300,
+        entryPoints: 12,
+        cost: $2000
+    }]
+}
+
+DELETE Delete walmart
+- /deleteBuilding/?buildingId="b3"
+
+Response:
+{
+    status:"OK",
+    payload: [{
+        buildingId: "b1",buildingId: "b1",
+        name: QualcommBuilding,
+        size: 100,
+        entryPoints: 6,
+        cost: $1000
+    },
+    {   buildingId: "b2",
+        name: SNBuilding,
+        size: 500,
+        entryPoints: 15,
+        cost: $3000
+    }]
+}
